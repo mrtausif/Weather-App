@@ -8,7 +8,7 @@ weatherForm.addEventListener('submit', (e) => {
     const adress = search.value;
     if (!adress) return (msgOne.textContent = 'Please input adress');
     msgOne.textContent = 'Loading...';
-    fetch(`http://localhost:3000/weather?adress=${adress}`).then((res) => {
+    fetch(`/weather?adress=${adress}`).then((res) => {
         res.json().then((data) => {
             if (data.error) return (msgOne.textContent = data.error);
             msgOne.textContent = data.location + ' ' + data.forecast;
